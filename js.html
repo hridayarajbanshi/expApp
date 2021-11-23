@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=c, initial-scale=1.0">
+    <title>Expense.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .heading {
+            font-family: monospace;
+            color: darkgreen;
+            text-transform: uppercase;
+            margin: 20px;
+            border-bottom: 2px solid gray;
+            text-align: center;
+        }
+
+        .smallHead {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            margin: 15px;
+            color: darkblue;
+        }
+
+        label {
+            font-family: monospace;
+            font-size: 15px;
+            margin: 10px;
+            color: darkred;
+        }
+
+        input {
+            margin-left: 10px;
+            padding: 5px;
+            margin: 10px;
+
+        }
+
+        .expInput {
+            position: absolute;
+            transform: translate(30%, 50%);
+            padding: 10px;
+        }
+
+        #checkBtn {
+            padding: 8px;
+            border: none;
+            float: right;
+            margin-top: 10px;
+            background-color: darkgreen;
+            color: white;
+            border-radius: 5px;
+            transition: 0.4s;
+        }
+
+        #checkBtn:hover {
+            color: black;
+            cursor: pointer;
+            background-color: lightgreen;
+        }
+        #namE{
+            font-size: 20px;
+            transition: 0.4s;
+            padding: 20px;
+        }   
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Expense</h1>
+    <div class="expInput">
+        <h2 class="smallHead">Make a bill.</h2>
+        
+       
+        <form>
+            <label>Name</label>
+            <input type="text" id="userName" placeholder="Enter your name ">
+            <label>Expenses you did</label>
+            <input type="text" id="userExp" placeholder="Enter the expenses"><br>
+            <label>Date</label>
+            <input type="date" id="dateOfBuy">
+            <label>Amount</label>
+            <input type="number" id="amountOfBuy">
+            <button type="button" value="submit" id="checkBtn"onclick="result()">Check</button>
+        </form>
+        <h2 class="smallHead">Your total expenses.</h2>
+        <p id="namE"></p>
+    </div>
+
+    <script>
+        //making a expensesApp
+       
+        function result() {
+            var name = document.getElementById("userName").value;
+            var exp = document.getElementById("userExp").value;
+            var datE = document.getElementById("dateOfBuy").value;
+            var amount = document.getElementById("amountOfBuy").value;
+            if(name.length == 0 || exp.length == 0 || datE.length == 0 || amount.length == 0){
+                document.getElementById("namE").style.color = "red";
+                document.getElementById("namE").innerHTML = "Please input some data !!!"
+        }else{
+            document.getElementById("namE").style.color = "green";
+            document.getElementById('namE').innerHTML= name + " you bought " + exp + " on " + datE + " of $" + amount;
+        }}
+
+    </script>
+</body>
+
+</html>
